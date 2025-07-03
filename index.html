@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Discord OAuth Redirect</title>
+    <script>
+      // Parse the code from the URL
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      if (code) {
+        // Redirect to your app with the code
+        window.location = 'emjogos://discordauth/app?code=' + encodeURIComponent(code);
+      } else {
+        document.write("No code found in URL.");
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to app...</p>
+  </body>
+</html>
