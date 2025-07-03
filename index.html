@@ -2,21 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>OAuth Redirect</title>
+    <title>Discord OAuth Redirect</title>
     <script>
-      // Get the path (e.g., /discord or /youtube)
-      const path = window.location.pathname.toLowerCase();
+      // Parse the code from the URL
       const params = new URLSearchParams(window.location.search);
       const code = params.get('code');
-
       if (code) {
-        if (path.endsWith('/discord')) {
-          window.location = 'emjogos://discordauth/app?code=' + encodeURIComponent(code);
-        } else if (path.endsWith('/youtube')) {
-          window.location = 'emjogos://youtubeauth/app?code=' + encodeURIComponent(code);
-        } else {
-          document.write("Unknown provider in path: " + path);
-        }
+        // Redirect to your app with the code
+        window.location = 'emjogos://discordauth/app?code=' + encodeURIComponent(code);
       } else {
         document.write("No code found in URL.");
       }
