@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube OAuth Redirect</title>
+    <script>
+        // Extract the authorization code from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            // Redirect back to the Android app with the authorization code
+            window.location.href = `emjogos://youtubeauth/app?code=${code}`;
+        } else {
+            document.body.innerHTML = '<h1>OAuth Error</h1><p>No authorization code received.</p>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Processing YouTube OAuth...</h1>
+    <p>Please wait while we redirect you back to the app.</p>
+</body>
+</html>
